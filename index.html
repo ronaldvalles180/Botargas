@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><script type='text/javascript' nonce='lldwFU9WRWh4pIpqncdX2A==' src='https://contribution.usercontent.google.com/SsyI9mWKBoXzWrNnhWNMYCuVttJK3nWI17oQNFe9zJJh1P7c6AlV2YOd7ZBdBQk7aKc-LvkoX2Gdjj6JZx3cmwjuHlG6Ny96V70-xGgFHrT87VkpX386KAZtHOCNlxlfE0bXQNZN5c-ddPmELiLc90JH69QLh8lsSelPGE7l_We5A-KppFRTdBNDWfhLK9rpkEXF3Z90VO0HD5UhIOAAxhBaoOB1UsCExjMY5HrYZh9j8AZc-k7MtvbWtqH9W9nEl8iwLtzRS9cygrSYzaLTJuJPsvjmLC-k8MU_lG5rcyEUhPCiajZFuPiTtF70eSE1Obaqx2J3Ai_Q1lPBiaq6Y09-_x1mrpXZ9t8Bx_CtxWGW9nkpQa9RozrBJHEcThyBFW9BZM2JUSLuVX_kHV_ZaR9Jae47vn5pKqc-7zXGiYEOgy-4vxx2-3RuVmZmlEraLhWUYzNgEClVxIx4I6LI1ltS0Fd96-tKu3HmPUjppwKn-woHWpaIC5K2aMjmIULwZNcLHB4cHNa5RuuvSWXKDh8vCRM5yfeunex1YAoXYNVFw4fIDe7yssCFngwXVr8fX2hMzvISkNbP3GvdZEbQuY29nCGQ9CONt6K1M_JVt-nC6lYcnePccEUzqKzu-U42CFTr3gX8ZmQ-QSxjQnB8usShO_aS2_4m8vmwEyr6td-KGxy713mWseHsyErevKqYRID8oVq4QtAiIqtA_yRAcnPhM5hbtz7yB1x4rHWM9UH2'></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Rentabilidad - Alquiler de Botargas v2</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --background: #f3f4f6;
+            --card-bg: #ffffff;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --success: #059669;
+            --warning: #d97706;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text-main);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+        }
+
+        .header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .panel {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--background);
+            padding-bottom: 5px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--text-main);
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        input[type="number"]:focus {
+            border-color: var(--primary-color);
+        }
+
+        .note {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+            display: block;
+            font-weight: normal;
+        }
+
+        .lavado-info {
+            font-size: 0.85rem;
+            color: var(--warning);
+            font-weight: 600;
+            margin-top: 5px;
+            display: inline-block;
+        }
+
+        .results-card {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+        }
+
+        .result-label {
+            font-weight: 600;
+        }
+
+        .result-value {
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .highlight-green { color: var(--success); font-size: 1.4rem; }
+        .highlight-blue { color: var(--primary-color); }
+
+        .disclaimer {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: center;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #fffbeb;
+            border-radius: 6px;
+            border: 1px solid #fef3c7;
+        }
+
+        @media (max-width: 600px) {
+            .content { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>Calculadora de Rentabilidad</h1>
+            <p>Emprendimiento de Alquiler de Botargas</p>
+        </div>
+
+        <div class="content">
+            <!-- Panel de Entradas -->
+            <div class="panel">
+                <h2>1. Configura tus Datos</h2>
+                
+                <div class="form-group">
+                    <label>Costo de la Botarga ($)</label>
+                    <input type="number" id="costoBotarga" value="1000" step="50">
+                </div>
+
+                <div class="form-group">
+                    <label>Precio que cobrarás por evento ($)</label>
+                    <input type="number" id="precioEvento" value="140" step="5">
+                </div>
+
+                <h2>2. Costos Operativos por Evento</h2>
+
+                <div class="form-group">
+                    <label>
+                        Lavado / Limpieza ($)
+                        <span class="note">Observación: $90 lavado completo</span>
+                    </label>
+                    <input type="number" id="costoLavado" value="25" step="1">
+                    <span id="lavadoPorcentaje" class="lavado-info"></span>
+                </div>
+
+                <div class="form-group">
+                    <label>Logística / Transporte ($)</label>
+                    <input type="number" id="costoTransporte" value="25" step="5">
+                </div>
+
+                <div class="form-group">
+                    <label>Pago al Talento / Animador ($)</label>
+                    <input type="number" id="pagoTalento" value="20" step="5">
+                </div>
+
+                <div class="form-group">
+                    <label>Pago al Staff de Apoyo ($)</label>
+                    <input type="number" id="pagoStaff" value="10" step="5">
+                </div>
+            </div>
+
+            <!-- Panel de Resultados -->
+            <div class="panel">
+                <h2>Proyección Financiera</h2>
+                
+                <div class="results-card">
+                    <div class="result-item">
+                        <span class="result-label">Ingreso Bruto:</span>
+                        <span class="result-value" id="resIngreso">$0.00</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Costos Operativos:</span>
+                        <span class="result-value" id="resCostos" style="color: #ef4444;">-$0.00</span>
+                    </div>
+                    <div class="result-item" style="margin-top: 10px; background-color: #dcfce7; padding: 15px; border-radius: 6px;">
+                        <span class="result-label">Ganancia Neta Real:</span>
+                        <span class="result-value highlight-green" id="resGanancia">$0.00</span>
+                    </div>
+                </div>
+
+                <div class="results-card">
+                    <div class="result-item">
+                        <span class="result-label">Eventos para recuperar inversión:</span>
+                        <span class="result-value highlight-blue" id="resROI">0 eventos</span>
+                    </div>
+                </div>
+
+                <div class="disclaimer">
+                    <strong>Nota importante:</strong> Los datos arrojados por esta calculadora representan un aproximado, no es un cálculo exacto.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calcularRentabilidad() {
+            // Obtener valores de los inputs
+            const costoBotarga = parseFloat(document.getElementById('costoBotarga').value) || 0;
+            const precioEvento = parseFloat(document.getElementById('precioEvento').value) || 0;
+            
+            const costoLavado = parseFloat(document.getElementById('costoLavado').value) || 0;
+            const costoTransporte = parseFloat(document.getElementById('costoTransporte').value) || 0;
+            const pagoTalento = parseFloat(document.getElementById('pagoTalento').value) || 0;
+            const pagoStaff = parseFloat(document.getElementById('pagoStaff').value) || 0;
+
+            // Lógica de porcentaje de lavado
+            const porcentajeLavado = ((costoLavado / 90) * 100).toFixed(1);
+            const lavadoText = document.getElementById('lavadoPorcentaje');
+            
+            if (costoLavado > 0) {
+                lavadoText.innerText = `Este valor representa el ${porcentajeLavado}% de un lavado completo ($90)`;
+            } else {
+                lavadoText.innerText = ``;
+            }
+
+            // Cálculos principales
+            const costosOperativos = costoLavado + costoTransporte + pagoTalento + pagoStaff;
+            const gananciaNeta = precioEvento - costosOperativos;
+            
+            let eventosROI = 0;
+            if (gananciaNeta > 0) {
+                eventosROI = Math.ceil(costoBotarga / gananciaNeta);
+            }
+
+            // Mostrar resultados
+            document.getElementById('resIngreso').innerText = `$${precioEvento.toFixed(2)}`;
+            document.getElementById('resCostos').innerText = `-$${costosOperativos.toFixed(2)}`;
+            
+            const gananciaEl = document.getElementById('resGanancia');
+            if(gananciaNeta <= 0) {
+                gananciaEl.innerText = `$0.00 (Pérdida/Empate)`;
+                gananciaEl.style.color = '#ef4444';
+            } else {
+                gananciaEl.innerText = `$${gananciaNeta.toFixed(2)}`;
+                gananciaEl.style.color = 'var(--success)';
+            }
+
+            const roiEl = document.getElementById('resROI');
+            if (gananciaNeta > 0) {
+                roiEl.innerText = `${eventosROI} eventos`;
+            } else {
+                roiEl.innerText = `Inviable con pérdidas`;
+            }
+        }
+
+        // Agregar Event Listeners a todos los inputs
+        const inputs = document.querySelectorAll('input[type="number"]');
+        inputs.forEach(input => {
+            input.addEventListener('input', calcularRentabilidad);
+        });
+
+        // Calcular al cargar
+        window.onload = calcularRentabilidad;
+    </script>
+</body>
+</html>
