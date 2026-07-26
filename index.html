@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
-<head><script type='text/javascript' nonce='NMinstMi3+6t7dDEgBTM/g==' src='https://contribution.usercontent.google.com/q4KwIz6luPam26So_caMkwTfASgbJhBih-Rw_1lDl9nnlmfQq80opRnbQGzgwiQYCCB_RwSQb20eoqb6DA1zdMnPd8oOSWgEeGzRiKYrq7czUbDR_nUbsO4yoTeHU58-c5bOtGL-N6Z53Hw7Ub_8B9SxFiH1i4JdTLi7n3gV0Z4z5XRF9ulwklWA_OUthGT9LPJOl_-xmBLRWY8NBhZgcpn6phoEB9UxL1cCj7bbgHqgyu3UBKm2aHPU3Fwj7tlhj4bRz7fR7AVllwQvbNwldHgW-cWXFFu-AbmrdZN8NWTztCBE_Snpqu0RH8Wt3t7dt1Dd2uimML8U0ArxrGGLE-QkpRBJOYc46vxQOqpBns1lqYrhfY_7ZMTl14njWTag4DELoNaZ1d944-TWo1SlbZg1EbmmDSIguD12AjNbW3SfrOxDgLmQ1O-SoJCv_gPvSwe8qWtC3C932K8oF0tK_XLujMe-TW7abydCLvrcL4jHRC3e__Hh317avr5etl4NiOv3Qzn7HbVq-1VoWyyF-ZU3bR9kY4CDWgWVmqA0wywMXqFOw-yoGCnpCNTsc4ja79cNV3rG5AMqFbVuma2n40-9mYBCuHg1IWgiZtFSFGLosHniJr6qpHaGWh7X18Q2Z41mvUsLkwChe6fPRZWw_vc7xfEQWczfQYGOSoF8zGJa5vI7tHyiF5E-tfuNvcFuAadBiO5ekefUNPnZ3yNtsay8DhYuxJYKaaBvc0Nw3VIe'></script>
+<head><script type='text/javascript' nonce='AnSMyF6sDpHo2hXaDbeyhA==' src='https://contribution.usercontent.google.com/KJFdzTNR-8svLMFjHaRaXo3sRm0CkrdMoF9pfQ2P1VbDi-GNWR_zu7RaacCRoLfGHBr45_aFD-TM3ZBR7Go6DVegwkiqxSc5XD7jvEjo7sG0yutD_MvdT6r1nIhofzUFUtpfumiDRWH8zn62KRhbcgrMQeck9ivPATQpZb_cs7ZGc1FGlr3dr8e_SDB-KfT3hWFvSMdhyRiv9fB27-BjUWRedp_N_R1qERLAWyfbfvsUwyTbADfAVngx_ZTkXAvQaWsmytN73BlFmev_xOoNrRrhkWePI-N8WCYOiVCQGICDcImTj_x7p-LY1xPI8-g2FGUQNDLh-RGg3YHE_UVgTlp0S0DiJGOCNUN7t-CAACqXJ2TRs3HhcVdIbN38Y2VQPN8NOT_YyGEDwY_elOYl9oJ304wt-XvZiB1f4Meo3emW2Jb-IOExSd5yd_MTEmEYKjMVQsyZb19F7UihACqxwj5I-UakJpYV2m2YC9WjHz4H5R7DIt2BSwJF6i8ckgascqgRhoJSO7MJ2lIOY9-6huAjGvlyAM1CbGlURSURgW1yjYW5vlFFu7O3mY5sSYxZI2XtWzMI1msR6qylOgcnltIwHeQ3mt5B4kTuNeIdBSVE_OGquMrsB5Tn1e4AybtWJ3uYaBvIXVHhP9szK_606ynTKV2vXgXTJm4vAkCG4oMVrSdYbsLZ9buG-4Wj0pGPPCgrw8wpAPze3pH8aJJjvVDhI4Sdss06CKMAKJ1wv63aGQ'></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Calculadora de Rentabilidad - Alquiler de Botargas v6</title>
+    <title>Calculadora de Rentabilidad - Alquiler de Botargas v10</title>
     <style>
         :root {
             --primary-color: #3b82f6;
@@ -15,13 +15,14 @@
             --success: #10b981;
             --warning: #f59e0b;
             --danger: #ef4444;
-            --border-radius: 12px;
+            --border-radius: 16px;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; -webkit-tap-highlight-color: transparent; }
         
-        /* Layout optimizado para móvil sin scroll general */
+        /* Layout fijo y limpio para iPhone / Móvil sin saltos de altura */
         html, body {
             height: 100%;
+            width: 100%;
             overflow: hidden;
             background-color: var(--background);
             color: var(--text-main);
@@ -31,67 +32,87 @@
         }
 
         .container {
-            max-width: 500px;
             width: 100%;
             height: 100%;
+            max-width: 480px;
             max-height: 100vh;
             background-color: var(--card-bg);
             display: flex;
             flex-direction: column;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            position: relative;
         }
 
-        @media (min-width: 550px) {
+        @media (min-width: 500px) {
             .container {
-                height: auto;
-                max-height: 95vh;
+                height: 90vh;
+                max-height: 750px;
                 border-radius: var(--border-radius);
-                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
                 overflow: hidden;
+                border: 1px solid #e2e8f0;
             }
         }
 
         .header {
             background-color: var(--primary-color);
             color: white;
-            padding: 12px 15px;
+            padding: 14px 20px;
             text-align: center;
             flex-shrink: 0;
+            border-top-left-radius: inherit;
+            border-top-right-radius: inherit;
         }
-        .header h1 { font-size: 1.25rem; font-weight: 600; margin-bottom: 2px; }
-        .header p { font-size: 0.85rem; opacity: 0.9; }
+        .header h1 { font-size: 1.15rem; font-weight: 700; margin-bottom: 2px; }
+        .header p { font-size: 0.75rem; opacity: 0.9; }
         
         /* Progress Bar */
         .progress-container { background: #e2e8f0; height: 4px; width: 100%; flex-shrink: 0; }
         .progress-bar { height: 100%; background: var(--success); width: 25%; transition: width 0.3s ease; }
         
         .content {
-            padding: 15px;
+            padding: 16px;
             flex: 1;
             overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
         
-        /* Wizard Steps */
-        .step { display: none; animation: fadeIn 0.3s; }
-        .step.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .step { display: none; }
+        .step.active { display: block; animation: fadeIn 0.25s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
         
-        h2 { font-size: 1.1rem; margin-bottom: 12px; color: var(--text-main); font-weight: 600; border-bottom: 2px solid var(--background); padding-bottom: 5px; }
+        h2 { font-size: 1.05rem; margin-bottom: 12px; color: var(--text-main); font-weight: 700; border-bottom: 2px solid var(--background); padding-bottom: 6px; }
         
-        .form-group { margin-bottom: 12px; }
-        label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 4px; color: var(--text-main); }
-        input[type="number"], select { width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 0.95rem; outline: none; transition: all 0.2s; background-color: #f8fafc; }
-        input[type="number"]:focus, select:focus { border-color: var(--primary-color); background-color: white; box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2); }
+        .form-group { margin-bottom: 14px; }
+        label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-main); }
         
-        .note { font-size: 0.75rem; color: var(--text-muted); margin-top: 2px; display: block; }
-        .lavado-info { font-size: 0.8rem; color: var(--warning); font-weight: 600; margin-top: 4px; display: inline-block; }
+        input[type="text"], select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            outline: none;
+            transition: all 0.2s;
+            background-color: #f8fafc;
+            color: var(--text-main);
+            appearance: none;
+        }
+        
+        input[type="text"]:focus, select:focus {
+            border-color: var(--primary-color);
+            background-color: white;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+        }
+        
+        .note { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; display: block; }
+        .lavado-info { font-size: 0.8rem; color: var(--warning); font-weight: 600; margin-top: 6px; display: inline-block; }
         
         /* Navigation Buttons */
-        .nav-buttons { display: flex; justify-content: space-between; margin-top: 15px; gap: 10px; flex-shrink: 0; padding-top: 5px; }
-        button { padding: 10px 15px; border: none; border-radius: 8px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background-color 0.2s; }
+        .nav-buttons { display: flex; justify-content: space-between; margin-top: 12px; gap: 12px; flex-shrink: 0; padding-top: 8px; border-top: 1px solid #f1f5f9; }
+        button { padding: 10px 18px; border: none; border-radius: 10px; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: background-color 0.2s; }
         button.btn-prev { background-color: #e2e8f0; color: var(--text-main); }
         button.btn-prev:hover { background-color: #cbd5e1; }
         button.btn-next { background-color: var(--primary-color); color: white; flex: 1; }
@@ -99,25 +120,47 @@
         button.btn-calc { background-color: var(--success); color: white; flex: 1; }
         button.btn-calc:hover { background-color: #059669; }
 
-        /* Results compactos para evitar scroll */
-        .results-card { background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px 12px; margin-bottom: 10px; }
-        .result-item { display: flex; justify-content: space-between; align-items: center; padding: 5px 0; border-bottom: 1px solid #e2e8f0; font-size: 0.85rem; }
+        /* Results Card */
+        .results-card { background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 10px 12px; margin-bottom: 8px; }
+        .result-item { display: flex; justify-content: space-between; align-items: center; padding: 5px 0; border-bottom: 1px solid #e2e8f0; font-size: 0.82rem; }
         .result-item:last-child { border-bottom: none; }
         .result-label { font-weight: 600; color: var(--text-muted); }
         .result-value { font-weight: bold; color: var(--text-main); }
         
-        .expense-detail { padding-left: 10px; font-size: 0.8rem; color: #475569; padding: 3px 0; }
+        .expense-detail { padding-left: 10px; font-size: 0.78rem; color: #475569; padding: 3px 0; }
         
-        .highlight-green { color: var(--success); font-size: 1.15rem; }
-        .highlight-blue { color: var(--primary-color); font-size: 0.95rem; }
+        .highlight-green { color: var(--success); font-size: 1.1rem; }
+        .highlight-blue { color: var(--primary-color); font-size: 0.9rem; }
         
-        .net-profit { margin-top: 8px; background-color: #dcfce7; padding: 8px 10px; border-radius: 6px; border: 1px solid #bbf7d0; }
-        .net-profit .result-label { color: #166534; font-size: 0.95rem; }
+        .net-profit { margin-top: 6px; background-color: #dcfce7; padding: 8px 10px; border-radius: 8px; border: 1px solid #bbf7d0; }
+        .net-profit .result-label { color: #166534; font-size: 0.9rem; }
         
-        .disclaimer { font-size: 0.75rem; color: var(--text-muted); text-align: center; margin-top: 5px; padding: 6px; background-color: #fffbeb; border-radius: 6px; border: 1px solid #fef3c7; }
+        .disclaimer { font-size: 0.7rem; color: var(--text-muted); text-align: center; margin-top: 4px; padding: 6px; background-color: #fffbeb; border-radius: 8px; border: 1px solid #fef3c7; }
         
-        .quick-adjustments { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; background-color: #f1f5f9; padding: 8px; border-radius: 8px; border: 1px solid #e2e8f0; }
-        .quick-adjustments .full-width { grid-column: span 2; }
+        /* 3 columnas en una sola línea */
+        .quick-adjustments { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr 1fr; 
+            gap: 6px; 
+            margin-bottom: 8px; 
+            background-color: #f1f5f9; 
+            padding: 8px; 
+            border-radius: 10px; 
+            border: 1px solid #e2e8f0; 
+        }
+        .quick-adjustments label { 
+            font-size: 0.65rem; 
+            font-weight: 700; 
+            margin-bottom: 3px; 
+            white-space: nowrap; 
+            overflow: hidden; 
+            text-overflow: ellipsis; 
+        }
+        .quick-adjustments select { 
+            padding: 6px 4px; 
+            font-size: 0.75rem; 
+            border-radius: 6px; 
+        }
     </style>
 </head>
 <body>
@@ -147,8 +190,8 @@
                 </div>
                 <div class="form-group">
                     <label>Logística / Transporte (Flete Total) ($)</label>
-                    <span class="note">Costo fijo por evento, sin importar la cantidad de botargas.</span>
-                    <input type="number" id="costoTransporte" value="30" step="5">
+                    <span class="note">Costo fijo por evento, sin importar la cantidad.</span>
+                    <input type="text" inputmode="decimal" class="num-input" id="costoTransporte" value="30">
                 </div>
             </div>
 
@@ -157,7 +200,7 @@
                 <h2>Paso 2: Costo de Inversión</h2>
                 <div class="form-group">
                     <label>Costo de Inversión por Botarga ($)</label>
-                    <input type="number" id="costoBotarga" value="1000" step="50">
+                    <input type="text" inputmode="decimal" class="num-input" id="costoBotarga" value="1000">
                 </div>
             </div>
 
@@ -169,16 +212,16 @@
                         Lavado / Limpieza ($)
                         <span class="note">Referencia: $90 lavado completo</span>
                     </label>
-                    <input type="number" id="costoLavado" value="30" step="1">
+                    <input type="text" inputmode="decimal" class="num-input" id="costoLavado" value="30">
                     <span id="lavadoPorcentaje" class="lavado-info"></span>
                 </div>
                 <div class="form-group">
                     <label>Pago al Talento / Animador ($)</label>
-                    <input type="number" id="pagoTalento" value="20" step="5">
+                    <input type="text" inputmode="decimal" class="num-input" id="pagoTalento" value="20">
                 </div>
                 <div class="form-group">
                     <label>Pago al Staff de Apoyo ($)</label>
-                    <input type="number" id="pagoStaff" value="10" step="5">
+                    <input type="text" inputmode="decimal" class="num-input" id="pagoStaff" value="10">
                 </div>
             </div>
 
@@ -188,28 +231,80 @@
                 
                 <div class="quick-adjustments">
                     <div>
-                        <label style="font-size: 0.75rem;">Precio Base / Botarga ($)</label>
-                        <input type="number" id="precioEvento" value="140" step="5" style="padding: 8px;">
-                    </div>
-                    <div>
-                        <label style="font-size: 0.75rem;">Duración Servicio</label>
-                        <select id="duracionServicio" style="padding: 8px; font-size: 0.85rem;">
-                            <option value="1">1 Hora (Base)</option>
-                            <option value="1.5">1h 30m (+$30)</option>
-                            <option value="2">2 Horas (+$60)</option>
-                            <option value="2.5">2h 30m (+$90)</option>
-                            <option value="3">3 Horas (+$120)</option>
-                            <option value="3.5">3h 30m (+$150)</option>
-                            <option value="4">4 Horas (+$180)</option>
+                        <label title="Precio Base / Botarga">Precio Base</label>
+                        <select id="precioEvento">
+                            <option value="100">$100</option>
+                            <option value="110">$110</option>
+                            <option value="120">$120</option>
+                            <option value="130">$130</option>
+                            <option value="140" selected="">$140</option>
+                            <option value="150">$150</option>
+                            <option value="160">$160</option>
+                            <option value="170">$170</option>
+                            <option value="180">$180</option>
+                            <option value="190">$190</option>
+                            <option value="200">$200</option>
+                            <option value="210">$210</option>
+                            <option value="220">$220</option>
+                            <option value="230">$230</option>
+                            <option value="240">$240</option>
+                            <option value="250">$250</option>
+                            <option value="260">$260</option>
+                            <option value="270">$270</option>
+                            <option value="280">$280</option>
+                            <option value="290">$290</option>
+                            <option value="300">$300</option>
+                            <option value="310">$310</option>
+                            <option value="320">$320</option>
+                            <option value="330">$330</option>
+                            <option value="340">$340</option>
+                            <option value="350">$350</option>
+                            <option value="360">$360</option>
+                            <option value="370">$370</option>
+                            <option value="380">$380</option>
+                            <option value="390">$390</option>
+                            <option value="400">$400</option>
+                            <option value="410">$410</option>
+                            <option value="420">$420</option>
+                            <option value="430">$430</option>
+                            <option value="440">$440</option>
+                            <option value="450">$450</option>
+                            <option value="460">$460</option>
+                            <option value="470">$470</option>
+                            <option value="480">$480</option>
+                            <option value="490">$490</option>
+                            <option value="500">$500</option>
                         </select>
                     </div>
-                    <div class="full-width">
-                        <label style="font-size: 0.75rem;">Descuento Aplicable (%)</label>
-                        <input type="number" id="descuentoPorcentaje" value="0" min="0" max="100" step="1" style="padding: 8px;">
+                    <div>
+                        <label title="Duración del Servicio">Duración</label>
+                        <select id="duracionServicio">
+                            <option value="1">1h (Base)</option>
+                            <option value="1.5">1h 30m</option>
+                            <option value="2">2 Horas</option>
+                            <option value="2.5">2h 30m</option>
+                            <option value="3">3 Horas</option>
+                            <option value="3.5">3h 30m</option>
+                            <option value="4">4 Horas</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label title="Descuento Aplicable">Descuento</label>
+                        <select id="descuentoPorcentaje">
+                            <option value="0" selected="">0%</option>
+                            <option value="5">5%</option>
+                            <option value="10">10%</option>
+                            <option value="15">15%</option>
+                            <option value="20">20%</option>
+                            <option value="25">25%</option>
+                            <option value="30">30%</option>
+                            <option value="40">40%</option>
+                            <option value="50">50%</option>
+                        </select>
                     </div>
                 </div>
                 
-                <div class="results-card" style="margin-bottom: 8px;">
+                <div class="results-card" style="margin-bottom: 6px;">
                     <div class="result-item">
                         <span class="result-label">Precio Ajustado (c/u):</span>
                         <span class="result-value" id="resPrecioAjustado">$140.00</span>
@@ -224,8 +319,8 @@
                     </div>
                     
                     <!-- Desglose de Gastos -->
-                    <div style="margin: 6px 0; border-top: 1px solid #cbd5e1; border-bottom: 1px solid #cbd5e1; padding: 4px 0;">
-                        <div style="font-weight: 600; font-size: 0.8rem; margin-bottom: 2px; color: var(--text-main);">Desglose de Gastos Operativos:</div>
+                    <div style="margin: 4px 0; border-top: 1px solid #cbd5e1; border-bottom: 1px solid #cbd5e1; padding: 3px 0;">
+                        <div style="font-weight: 600; font-size: 0.75rem; margin-bottom: 2px; color: var(--text-main);">Desglose de Gastos Operativos:</div>
                         <div class="result-item expense-detail">
                             <span>• Lavado Total:</span>
                             <span id="detLavado">$0.00</span>
@@ -255,9 +350,9 @@
                     </div>
                 </div>
 
-                <div class="results-card" style="padding: 8px 12px; margin-bottom: 5px;">
+                <div class="results-card" style="padding: 6px 10px; margin-bottom: 4px;">
                     <div class="result-item" style="border-bottom: none; padding: 2px 0;">
-                        <span class="result-label" style="font-size: 0.8rem;">Recuperar Inversión:</span>
+                        <span class="result-label" style="font-size: 0.78rem;">Recuperar Inversión:</span>
                         <span class="result-value highlight-blue" id="resROI">0 eventos</span>
                     </div>
                 </div>
@@ -280,6 +375,27 @@
     let currentStep = 1;
     const totalSteps = 4;
 
+    const numInputs = document.querySelectorAll('.num-input');
+    numInputs.forEach(input => {
+        input.addEventListener('input', (e) => {
+            let val = input.value;
+            if (val.includes(',')) {
+                input.value = val.replace(/,/g, '.');
+            }
+            if(currentStep === totalSteps) calcularRentabilidad();
+        });
+
+        input.addEventListener('focus', function() {
+            setTimeout(() => {
+                this.select();
+            }, 50);
+        });
+        
+        input.addEventListener('mouseup', function(e) {
+            e.preventDefault();
+        });
+    });
+
     function changeStep(direction) {
         document.getElementById(`step${currentStep}`).classList.remove('active');
         currentStep += direction;
@@ -293,6 +409,9 @@
         if(currentStep === totalSteps) {
             calcularRentabilidad();
         }
+        
+        const contentArea = document.querySelector('.content > div');
+        if(contentArea) contentArea.scrollTop = 0;
     }
 
     function updateUI() {
@@ -319,12 +438,17 @@
         }
     }
 
+    function getVal(id) {
+        const val = document.getElementById(id).value.trim();
+        return parseFloat(val) || 0;
+    }
+
     function calcularRentabilidad() {
         const cantidadBotargas = parseInt(document.getElementById('cantidadBotargas').value) || 1;
         const porcentajeDescuento = parseFloat(document.getElementById('descuentoPorcentaje').value) || 0;
         const duracionHoras = parseFloat(document.getElementById('duracionServicio').value) || 1;
 
-        const costoBotargaUnitario = parseFloat(document.getElementById('costoBotarga').value) || 0;
+        const costoBotargaUnitario = getVal('costoBotarga');
         const precioBaseUnitario = parseFloat(document.getElementById('precioEvento').value) || 0;
         
         const horasExtra = Math.max(0, duracionHoras - 1);
@@ -334,10 +458,10 @@
 
         document.getElementById('resPrecioAjustado').innerText = `$${precioFinalUnitario.toFixed(2)}`;
 
-        const costoLavadoUnitario = parseFloat(document.getElementById('costoLavado').value) || 0;
-        const costoTransporteFijo = parseFloat(document.getElementById('costoTransporte').value) || 0;
-        const pagoTalentoUnitario = parseFloat(document.getElementById('pagoTalento').value) || 0;
-        const pagoStaffUnitario = parseFloat(document.getElementById('pagoStaff').value) || 0;
+        const costoLavadoUnitario = getVal('costoLavado');
+        const costoTransporteFijo = getVal('costoTransporte');
+        const pagoTalentoUnitario = getVal('pagoTalento');
+        const pagoStaffUnitario = getVal('pagoStaff');
 
         const porcentajeLavadoInfo = ((costoLavadoUnitario / 90) * 100).toFixed(1);
         const lavadoText = document.getElementById('lavadoPorcentaje');
@@ -399,12 +523,8 @@
         }
     }
 
-    const inputs = document.querySelectorAll('input[type="number"], select');
-    inputs.forEach(input => {
-        input.addEventListener('input', () => {
-            if(currentStep === totalSteps) calcularRentabilidad();
-        });
-        input.addEventListener('change', () => {
+    document.querySelectorAll('select').forEach(sel => {
+        sel.addEventListener('change', () => {
             if(currentStep === totalSteps) calcularRentabilidad();
         });
     });
